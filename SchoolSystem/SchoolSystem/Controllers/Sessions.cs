@@ -11,7 +11,7 @@ namespace SchoolSystem.Controllers
         {
             get 
             {
-                return Page.Session["Login"].ToString();
+                return Page.Session["Login"] != null ? Page.Session["Login"].ToString() : "";
             }
             set 
             {
@@ -23,7 +23,7 @@ namespace SchoolSystem.Controllers
         {
             get
             {
-                return Page.Session["Senha"].ToString();
+                return Page.Session["Senha"] != null ? Page.Session["Senha"].ToString() : "";
             }
             set
             {
