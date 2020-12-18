@@ -17,10 +17,18 @@
             height: 100%;
         }
 
-        .TituloCentral {
+        .titulo-central {
             position: absolute;
             top: 40%;
             left: 25%;
+        }
+
+        .text-roxo {
+            color: #19194d;
+        }
+
+        .bg-roxo {
+            background-color: #19194d;
         }
     </style>
 
@@ -34,16 +42,16 @@
     <form id="form1" runat="server">
         <div class="container-fliud" style="height: 100%;">
             <div class="row" style="height: 100%;">
-                <div class="col-0 col-sm-0 col-md-8 col-lg-8 col-xl-8 d-none d-sm-none d-md-block d-lg-block d-xl-block" style="height: 100%; background-color: #19194d;">
-                    <h1 class="TituloCentral text-light">SchoolSystem</h1>
+                <div class="col-0 col-sm-0 col-md-8 col-lg-8 col-xl-8 d-none d-sm-none d-md-block d-lg-block d-xl-block bg-roxo" style="height: 100%;">
+                    <h1 class="titulo-central text-light">SchoolSystem</h1>
                 </div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-block d-sm-block d-md-block d-lg-block d-xl-block bg-light" style="height: 100%;">
                     <div class="container pt-5 mt-5">
                         <div class="row text-center">
-                            <h1 style="color: #19194d;">SchoolSystem</h1>
+                            <h1 class="text-roxo">SchoolSystem</h1>
                         </div>
                         <div class="row mx-1 mt-2">
-                            <asp:Label ID="lblLogin" for="txtLogin" style="color: #19194d;" runat="server" Text="Login"></asp:Label>
+                            <asp:Label ID="lblLogin" for="txtLogin" class="text-roxo" runat="server" Text="Login"></asp:Label>
                         </div>
                         <div class="row mx-2">
                             <asp:TextBox ID="txtLogin" type="text" class="form-text form-control" runat="server" MaxLength="15"></asp:TextBox>
@@ -51,22 +59,19 @@
                         </div>
                         <div class="row"></div>
                         <div class="row mx-1 mt-1">
-                            <asp:Label ID="lblSenha" for="txtSenha"  style="color: #19194d;" runat="server" Text="Senha"></asp:Label>
+                            <asp:Label ID="lblSenha" for="txtSenha"  class="text-roxo" runat="server" Text="Senha"></asp:Label>
                         </div>
                         <div class="row mx-2">
                             <asp:TextBox ID="txtSenha" type="password" class="form-control" runat="server" MaxLength="30"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="reqtxtSenha" runat="server" ErrorMessage="Informe sua Senha" ControlToValidate="txtSenha" ValidationGroup="Obrigatorio" Display="Dynamic" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                         </div>
                         <div class="row mx-5 text-center">
-                            <asp:Button ID="btnEntrar" class="btn mt-3 text-light" style="background-color: #19194d;" runat="server" Text="Entrar" OnClick="btnEntrar_Click" ValidationGroup="Obrigatorio" CausesValidation="True" />
+                            <asp:Button ID="btnEntrar" class="btn mt-3 text-light bg-roxo" runat="server" Text="Entrar" OnClick="btnEntrar_Click" ValidationGroup="Obrigatorio" CausesValidation="True" />
                             <asp:Label ID="lblSenhaIncorreta"  class="text-danger" runat="server" Text="Usuário ou Senha Incorretos" Visible="False"></asp:Label>
                         </div>
                         <div class="row text-center mt-2">
                             <asp:HyperLink ID="linkEsqueceuASenha" class="text-primary" runat="server" href="#" onclick="EsqueciASenha()">Esqueceu a senha?</asp:HyperLink>
                         </div>
-                        <%--<div class="row text-center mt-1">
-                            <asp:HyperLink ID="linkCadastrese" class="text-primary" runat="server" href="/Views/Cadastro/Perfil.aspx">Cadastre-se</asp:HyperLink>
-                        </div>--%>
                     </div>
                 </div>
             </div>

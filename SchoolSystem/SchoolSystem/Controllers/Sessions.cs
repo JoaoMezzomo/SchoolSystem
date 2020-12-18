@@ -7,27 +7,39 @@ namespace SchoolSystem.Controllers
 {
     public class Sessions : System.Web.UI.Page
     {
-        public string Login 
-        {
-            get 
-            {
-                return Page.Session["Login"] != null ? Page.Session["Login"].ToString() : "";
-            }
-            set 
-            {
-                Page.Session["Login"] = value;
-            } 
-        }
-
-        public string Senha
+        public Int64 CAD_PERFIS_IDPERFIL
         {
             get
             {
-                return Page.Session["Senha"] != null ? Page.Session["Senha"].ToString() : "";
+                return Page.Session["CAD_PERFIS_IDPERFIL"] != null ? Convert.ToInt64(Page.Session["CAD_PERFIS_IDPERFIL"]) : 0;
             }
             set
             {
-                Page.Session["Senha"] = value;
+                Page.Session["CAD_PERFIS_IDPERFIL"] = value;
+            }
+        }
+
+        public string CAD_PERFIS_LOGIN 
+        {
+            get 
+            {
+                return Page.Session["CAD_PERFIS_LOGIN"] != null ? Page.Session["CAD_PERFIS_LOGIN"].ToString() : "";
+            }
+            set 
+            {
+                Page.Session["CAD_PERFIS_LOGIN"] = value;
+            } 
+        }
+
+        public string CAD_PERFIS_SENHA
+        {
+            get
+            {
+                return Page.Session["CAD_PERFIS_SENHA"] != null ? Page.Session["CAD_PERFIS_SENHA"].ToString() : "";
+            }
+            set
+            {
+                Page.Session["CAD_PERFIS_SENHA"] = value;
             }
         }
     }

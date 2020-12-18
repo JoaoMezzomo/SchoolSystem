@@ -18,31 +18,31 @@ namespace SchoolSystem.Controllers
 
             if (listaPerfil.Count > 0)
             {
-                SessionsSite.Login = login;
-                SessionsSite.Senha = senha;
+                SessionsSite.CAD_PERFIS_LOGIN = login;
+                SessionsSite.CAD_PERFIS_SENHA = senha;
 
                 return true;
             }
             else
             {
-                SessionsSite.Login = "";
-                SessionsSite.Senha = "";
+                SessionsSite.CAD_PERFIS_LOGIN = "";
+                SessionsSite.CAD_PERFIS_SENHA = "";
                 return false;
             }
         }
 
         public static void RealizarLogout() 
         {
-            SessionsSite.Login = "";
-            SessionsSite.Senha = "";
+            SessionsSite.CAD_PERFIS_LOGIN = "";
+            SessionsSite.CAD_PERFIS_SENHA = "";
         }
 
         public static bool VerificarLogin() 
         {
             try
             {
-                string login = SessionsSite.Login;
-                string senha = SessionsSite.Senha;
+                string login = SessionsSite.CAD_PERFIS_LOGIN;
+                string senha = SessionsSite.CAD_PERFIS_SENHA;
 
                 if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(senha))
                 {
@@ -50,16 +50,16 @@ namespace SchoolSystem.Controllers
                 }
                 else
                 {
-                    SessionsSite.Login = "";
-                    SessionsSite.Senha = "";
+                    SessionsSite.CAD_PERFIS_LOGIN = "";
+                    SessionsSite.CAD_PERFIS_SENHA = "";
 
                     return false;
                 }
             }
             catch (Exception)
             {
-                SessionsSite.Login = "";
-                SessionsSite.Senha = "";
+                SessionsSite.CAD_PERFIS_LOGIN = "";
+                SessionsSite.CAD_PERFIS_SENHA = "";
 
                 return false;
             }

@@ -18,13 +18,33 @@
         html, body, form {
             height: 100%;
         }
+
+        .obrigatorio {
+            border-color:#ff1a1a;
+        }
+
+        .text-roxo {
+            color: #19194d;
+        }
+
+        .bg-roxo {
+            background-color: #19194d;
+        }
+
+        .btn-salvar {
+            border-color:green;
+        }
+
+        .btn-cancelar {
+            border-color:#ff1a1a;
+        }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #19194d;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-roxo">
             <a class="navbar-brand" href="/Default.aspx">
                 <h2 class="mx-1">SchoolSystem</h2>
             </a>
@@ -36,17 +56,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <asp:LinkButton ID="linkHome" class="nav-link" runat="server" href="/Default.aspx">Home</asp:LinkButton>
+                        <asp:LinkButton ID="linkHome" class="nav-link text-light" runat="server" href="/Default.aspx">Home</asp:LinkButton>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Perfil
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <asp:LinkButton ID="linkMeuPerfil" class="dropdown-item" href="#" runat="server">Meu Perfil</asp:LinkButton>
-                            <asp:LinkButton ID="linkOutrosPerfis" class="dropdown-item" href="#" runat="server">Outros Perfis</asp:LinkButton>
+                            <asp:LinkButton ID="linkMeuPerfil" class="dropdown-item" href="/Views/Perfis/Perfis_Edita.aspx" runat="server">Meu Perfil</asp:LinkButton>
+                            <asp:LinkButton ID="linkOutrosPerfis" class="dropdown-item" href="/Views/Perfis/Perfis_Lista.aspx" runat="server">Outros Perfis</asp:LinkButton>
                             <div class="dropdown-divider"></div>
-                            <asp:LinkButton ID="linkCadastroPerfil" class="dropdown-item" href="#" runat="server">Cadastrar Novo Perfil</asp:LinkButton>
+                            <asp:LinkButton ID="linkCadastroPerfil" class="dropdown-item" href="/Views/Perfis/Perfis_Edita.aspx" runat="server">Cadastrar Novo Perfil</asp:LinkButton>
                         </div>
                     </li>
                     <li class="nav-item">

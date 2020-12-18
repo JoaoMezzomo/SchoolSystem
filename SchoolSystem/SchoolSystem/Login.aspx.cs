@@ -15,7 +15,7 @@ namespace SchoolSystem
             {
                 if (Controllers.Login.VerificarLogin())
                 {
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("/Default.aspx");
                 }
             }
         }
@@ -25,7 +25,7 @@ namespace SchoolSystem
             if (Controllers.Login.RealizarLogin(txtLogin.Text, txtSenha.Text))
             {
                 lblSenhaIncorreta.Visible = false;
-                Response.Redirect("Default.aspx");
+                Response.Redirect("/Default.aspx");
             }
             else
             {

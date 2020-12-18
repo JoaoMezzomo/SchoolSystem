@@ -93,6 +93,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jQuery.js" />
     <Content Include="Views\Cadastro\Perfil.aspx" />
+    <Content Include="Views\Perfis\Perfis_Edita.aspx" />
+    <Content Include="Views\Perfis\Perfis_Lista.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +132,20 @@
     </Compile>
     <Compile Include="Views\Cadastro\Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Perfis\Perfis_Edita.aspx.cs">
+      <DependentUpon>Perfis_Edita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Perfis\Perfis_Edita.aspx.designer.cs">
+      <DependentUpon>Perfis_Edita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Perfis\Perfis_Lista.aspx.cs">
+      <DependentUpon>Perfis_Lista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Perfis\Perfis_Lista.aspx.designer.cs">
+      <DependentUpon>Perfis_Lista.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -13,14 +13,14 @@ namespace SchoolSystem
         {
             if (!Controllers.Login.VerificarLogin())
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("/Login.aspx");
             }
         }
 
         protected void linkSair_Click(object sender, EventArgs e) 
         {
             Controllers.Login.RealizarLogout();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("/Login.aspx");
         }
     }
 }
