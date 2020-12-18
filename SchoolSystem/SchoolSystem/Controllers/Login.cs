@@ -31,6 +31,12 @@ namespace SchoolSystem.Controllers
             }
         }
 
+        public static void RealizarLogout() 
+        {
+            SessionsSite.Login = "";
+            SessionsSite.Senha = "";
+        }
+
         public static bool VerificarLogin() 
         {
             try
