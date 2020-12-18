@@ -98,7 +98,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Enums.cs" />
     <Compile Include="Controllers\Login.cs" />
+    <Compile Include="Controllers\Perfis.cs" />
+    <Compile Include="Controllers\Permissoes.cs" />
     <Compile Include="Controllers\Sessions.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -117,6 +120,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\CAD_PERFIS.cs" />
+    <Compile Include="Models\CAD_PERMISSOES.cs" />
     <Compile Include="Models\DataBase.cs" />
     <Compile Include="Pagina.Master.cs">
       <DependentUpon>Pagina.Master</DependentUpon>

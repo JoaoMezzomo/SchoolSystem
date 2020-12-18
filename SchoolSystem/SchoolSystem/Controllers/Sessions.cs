@@ -42,5 +42,17 @@ namespace SchoolSystem.Controllers
                 Page.Session["CAD_PERFIS_SENHA"] = value;
             }
         }
+
+        public int CAD_PERFIS_IDPERMISSAO
+        {
+            get
+            {
+                return Page.Session["CAD_PERFIS_IDPERMISSAO"] != null ? Convert.ToInt32(Page.Session["CAD_PERFIS_IDPERMISSAO"]) : 0;
+            }
+            set
+            {
+                Page.Session["CAD_PERFIS_IDPERMISSAO"] = value;
+            }
+        }
     }
 }

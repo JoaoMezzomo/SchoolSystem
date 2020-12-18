@@ -20,6 +20,7 @@ namespace SchoolSystem.Controllers
             {
                 SessionsSite.CAD_PERFIS_LOGIN = login;
                 SessionsSite.CAD_PERFIS_SENHA = senha;
+                SessionsSite.CAD_PERFIS_IDPERMISSAO = listaPerfil[0].IDPERMISSAO;
 
                 return true;
             }
@@ -27,6 +28,7 @@ namespace SchoolSystem.Controllers
             {
                 SessionsSite.CAD_PERFIS_LOGIN = "";
                 SessionsSite.CAD_PERFIS_SENHA = "";
+                SessionsSite.CAD_PERFIS_IDPERMISSAO = 0;
                 return false;
             }
         }
