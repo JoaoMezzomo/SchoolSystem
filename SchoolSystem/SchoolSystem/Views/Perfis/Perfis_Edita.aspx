@@ -77,10 +77,10 @@
         </div>
         <div class="row my-3">
             <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <asp:Button ID="btnSalvar" class="btn mt-3 text-light bg-roxo btn-salvar" runat="server" Text="Salvar" style="width: 100%;" ValidationGroup="Obrigatorio" CausesValidation="True" />
+                <asp:Button ID="btnSalvar" class="btn mt-3 text-light bg-roxo btn-salvar" runat="server" Text="Salvar" style="width: 100%;" ValidationGroup="Obrigatorio" CausesValidation="True" OnClick="btnSalvar_Click" />
             </div>
             <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <asp:Button ID="btnCancelar" class="btn mt-3 text-light bg-roxo btn-cancelar" runat="server" Text="Cancelar" style="width: 100%;" />
+                <asp:Button ID="btnCancelar" class="btn mt-3 text-light bg-roxo btn-cancelar" runat="server" Text="Cancelar" style="width: 100%;" OnClick="btnCancelar_Click" />
             </div>
         </div>
     </div>

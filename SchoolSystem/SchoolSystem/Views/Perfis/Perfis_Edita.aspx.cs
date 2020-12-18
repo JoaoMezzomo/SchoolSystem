@@ -20,8 +20,9 @@ namespace SchoolSystem.Views.Perfis
             {
                 CarregarPagina();
                 CarregarDados();
-                CarregarPermissao();
             }
+
+            CarregarPermissao();
         }
 
         private void CarregarPagina() 
@@ -99,11 +100,75 @@ namespace SchoolSystem.Views.Perfis
         {
             if (SessionsSite.CAD_PERFIS_IDPERMISSAO != (int)Enums.Permissoes.Admin)
             {
-                txtLogin.Attributes.Add("disabled", null);
-                txtSenha.Attributes.Add("disabled", null);
-                ddlPermissao.Attributes.Add("disabled", null);
+                txtLogin.ReadOnly = true;
+                txtSenha.ReadOnly = true;
+                ddlPermissao.Enabled = false;
                 checkExcluido.Enabled = false;
             }
+        }
+
+        protected void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Perfil.LOGIN = txtLogin.Text;
+
+            Perfil.SENHA = txtSenha.Text;
+
+            Perfil.IDPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
+
+            Perfil.CPF = !string.IsNullOrEmpty(txtCPF.Text) ? txtCPF.Text : null;
+
+            Perfil.NOME = txtNome.Text;
+
+            if (!string.IsNullOrEmpty(txtIdade.Text) && Convert.ToInt32(txtIdade.Text) > 0)
+            {
+                Perfil.IDADE = Convert.ToInt32(txtIdade.Text);
+            }
+            else
+            {
+                Perfil.IDADE = 0;
+            }
+
+            if (ddlSexo.SelectedValue != "0")
+            {
+                if (ddlSexo.SelectedValue == "M")
+                {
+                    Perfil.SEXO = 'M';
+                }
+                else
+                {
+                    Perfil.SEXO = 'F';
+                }
+            }
+            else
+            {
+                Perfil.SEXO = ' ';
+            }
+
+            Perfil.ENDERECO = !string.IsNullOrEmpty(txtEndereco.Text) ? txtEndereco.Text : null;
+
+            Perfil.TELEFONE_FIXO = !string.IsNullOrEmpty(txtTelFixo.Text) ? txtTelFixo.Text : null;
+
+            Perfil.TELEFONE_CELULAR = !string.IsNullOrEmpty(txtTelCelular.Text) ? txtTelCelular.Text : null;
+
+            Perfil.NOME_PAI = !string.IsNullOrEmpty(txtNomePai.Text) ? txtNomePai.Text : null;
+
+            Perfil.NOME_MAE = !string.IsNullOrEmpty(txtNomeMae.Text) ? txtNomeMae.Text : null;
+
+            if (checkExcluido.Checked)
+            {
+                Perfil.EXCLUIDO = true;
+            }
+            else
+            {
+                Perfil.EXCLUIDO = false;
+            }
+
+            Controllers.Perfis.Salvar(Perfil);
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

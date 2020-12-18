@@ -45,5 +45,12 @@ namespace SchoolSystem
 
             Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
         }
+
+        protected void linkCadastroPerfil_Click(object sender, EventArgs e)
+        {
+            SessionsSite.CAD_PERFIS_IDPERFIL = 0;
+
+            Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
+        }
     }
 }

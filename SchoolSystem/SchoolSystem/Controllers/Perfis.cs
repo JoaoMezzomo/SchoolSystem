@@ -53,5 +53,17 @@ namespace SchoolSystem.Controllers
                 return new CAD_PERFIS();
             }
         }
+
+        public static void Salvar(CAD_PERFIS Perfil) 
+        {
+            if (Perfil.IDPERFIL != 0)
+            {
+                CAD_PERFIS.UPDATE(Perfil);
+            }
+            else
+            {
+                CAD_PERFIS.INSERT(Perfil);
+            }
+        }
     }
 }

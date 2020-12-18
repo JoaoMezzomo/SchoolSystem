@@ -44,7 +44,7 @@ namespace SchoolSystem.Models
             return dataSet;
         }
 
-        protected void INSERT_UPDATE(string query)
+        public static void INSERT_UPDATE_DELETE(string query)
         {
             MensagemDeErro = "";
             try
