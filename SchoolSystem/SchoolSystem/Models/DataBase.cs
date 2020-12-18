@@ -47,6 +47,7 @@ namespace SchoolSystem.Models
         public static void INSERT_UPDATE_DELETE(string query)
         {
             MensagemDeErro = "";
+
             try
             {
                 string connectionString = BuscarConnectionString();

@@ -23,12 +23,38 @@
             left: 25%;
         }
 
+        .campo-obrigatorio {
+            border-color:#ff1a1a;
+        }
+
+        .campo-normal {
+            border-color:black;
+        }
+
         .text-roxo {
             color: #19194d;
         }
 
         .bg-roxo {
             background-color: #19194d;
+        }
+
+        .btn-salvar {
+            background-color: #19194d;
+            border-color:green;
+            border-width: 2px;
+        }
+
+        .btn-cancelar {
+            background-color: #19194d;
+            border-color:#ff1a1a;
+            border-width: 2px;
+        }
+
+        .btn-normal {
+            background-color: #19194d;
+            border-color:black;
+            border-width: 2px;
         }
     </style>
 
@@ -50,27 +76,36 @@
                         <div class="row text-center">
                             <h1 class="text-roxo">SchoolSystem</h1>
                         </div>
-                        <div class="row mx-1 mt-2">
-                            <asp:Label ID="lblLogin" for="txtLogin" class="text-roxo" runat="server" Text="Login"></asp:Label>
+                        <div class="row">
+                            <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+                            <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+                                <asp:Label ID="lblLogin" for="txtLogin" class="text-roxo" runat="server" Text="Login"></asp:Label>
+                                <asp:TextBox ID="txtLogin" type="text" class="form-text form-control campo-normal" runat="server" MaxLength="15"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="reqtxtLogin" runat="server" ErrorMessage="Informe seu Login" ControlToValidate="txtLogin" ValidationGroup="Obrigatorio" Display="Dynamic" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
                         </div>
-                        <div class="row mx-2">
-                            <asp:TextBox ID="txtLogin" type="text" class="form-text form-control" runat="server" MaxLength="15"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="reqtxtLogin" runat="server" ErrorMessage="Informe seu Login" ControlToValidate="txtLogin" ValidationGroup="Obrigatorio" Display="Dynamic" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <div class="row">
+                            <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+                            <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+                                <asp:Label ID="lblSenha" for="txtSenha"  class="text-roxo" runat="server" Text="Senha"></asp:Label>
+                                <asp:TextBox ID="txtSenha" type="password" class="form-control campo-normal" runat="server" MaxLength="30"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="reqtxtSenha" runat="server" ErrorMessage="Informe sua Senha" ControlToValidate="txtSenha" ValidationGroup="Obrigatorio" Display="Dynamic" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
                         </div>
-                        <div class="row"></div>
-                        <div class="row mx-1 mt-1">
-                            <asp:Label ID="lblSenha" for="txtSenha"  class="text-roxo" runat="server" Text="Senha"></asp:Label>
-                        </div>
-                        <div class="row mx-2">
-                            <asp:TextBox ID="txtSenha" type="password" class="form-control" runat="server" MaxLength="30"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="reqtxtSenha" runat="server" ErrorMessage="Informe sua Senha" ControlToValidate="txtSenha" ValidationGroup="Obrigatorio" Display="Dynamic" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                        </div>
-                        <div class="row mx-5 text-center">
-                            <asp:Button ID="btnEntrar" class="btn mt-3 text-light bg-roxo" runat="server" Text="Entrar" OnClick="btnEntrar_Click" ValidationGroup="Obrigatorio" CausesValidation="True" />
-                            <asp:Label ID="lblSenhaIncorreta"  class="text-danger" runat="server" Text="Usuário ou Senha Incorretos" Visible="False"></asp:Label>
+                        <div class="row text-center mt-3">
+                            <div class="col-2"></div>
+                            <div class="col-8">
+                                <asp:Button ID="btnEntrar" class="btn text-light btn-normal" runat="server" Text="Entrar" style="width: 100%;" OnClick="btnEntrar_Click" ValidationGroup="Obrigatorio" CausesValidation="True" />
+                                <asp:Label ID="lblSenhaIncorreta"  class="text-danger" runat="server" Text="Usuário ou Senha Incorretos" Visible="False"></asp:Label>
+                            </div>
+                            <div class="col-2"></div>
                         </div>
                         <div class="row text-center mt-2">
-                            <asp:HyperLink ID="linkEsqueceuASenha" class="text-primary" runat="server" href="#" onclick="EsqueciASenha()">Esqueceu a senha?</asp:HyperLink>
+                            <div class="col-12">
+                                <asp:HyperLink ID="linkEsqueceuASenha" class="text-primary" runat="server" href="#" onclick="EsqueciASenha()">Esqueceu a senha?</asp:HyperLink>
+                            </div>
                         </div>
                     </div>
                 </div>

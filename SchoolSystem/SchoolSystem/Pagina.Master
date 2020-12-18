@@ -19,8 +19,12 @@
             height: 100%;
         }
 
-        .obrigatorio {
+        .campo-obrigatorio {
             border-color:#ff1a1a;
+        }
+
+        .campo-normal {
+            border-color:black;
         }
 
         .text-roxo {
@@ -32,11 +36,21 @@
         }
 
         .btn-salvar {
+            background-color: #19194d;
             border-color:green;
+            border-width: 2px;
         }
 
         .btn-cancelar {
+            background-color: #19194d;
             border-color:#ff1a1a;
+            border-width: 2px;
+        }
+
+        .btn-normal {
+            background-color: #19194d;
+            border-color:black;
+            border-width: 2px;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">

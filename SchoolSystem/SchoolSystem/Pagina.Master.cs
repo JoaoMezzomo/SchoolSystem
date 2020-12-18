@@ -33,6 +33,11 @@ namespace SchoolSystem
             }
         }
 
+        private void MostrarMensagem(string mensagem)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", string.Format("alert('{0}')", mensagem), true);
+        }
+
         protected void linkSair_Click(object sender, EventArgs e) 
         {
             Controllers.Login.RealizarLogout();

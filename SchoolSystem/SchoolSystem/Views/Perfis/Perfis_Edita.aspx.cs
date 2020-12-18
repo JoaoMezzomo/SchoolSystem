@@ -107,6 +107,11 @@ namespace SchoolSystem.Views.Perfis
             }
         }
 
+        private void MostrarMensagem(string mensagem)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", string.Format("alert('{0}')", mensagem), true);
+        }
+
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
             Perfil.LOGIN = txtLogin.Text;
@@ -164,11 +169,23 @@ namespace SchoolSystem.Views.Perfis
             }
 
             Controllers.Perfis.Salvar(Perfil);
+
+            if (SessionsSite.CAD_PERFIS_IDPERFIL != 0)
+            {
+                MostrarMensagem("Alterações Salvas!");
+            }
+            else
+            {
+                MostrarMensagem("Novo Perfil Cadastrado!");
+            }
+
+            SessionsSite.CAD_PERFIS_IDPERFIL = Controllers.Perfis.BuscarIDPERFIL(Perfil.LOGIN);
+            CarregarDados();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("/Default.aspx");
         }
     }
 }
