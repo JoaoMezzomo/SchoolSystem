@@ -11,7 +11,16 @@ namespace SchoolSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Controllers.Login.VerificarLogin())
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
 
+        protected void linkSair_Click(object sender, EventArgs e) 
+        {
+            Controllers.Login.RealizarLogout();
+            Response.Redirect("Login.aspx");
         }
     }
 }

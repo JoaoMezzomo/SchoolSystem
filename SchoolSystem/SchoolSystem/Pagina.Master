@@ -8,17 +8,54 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SchoolSystem - Login</title>
+    <title>SchoolSystem</title>
 
-    <link href="/Content/bootstrap.css" rel="stylesheet"/>
-    <script src="Scripts/jquery-3.5.1.js" type="text/javascript"></script>
-    <script src="Scripts/bootstrap.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        html, body, form {
+            height: 100%;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #19194d;">
+            <a class="navbar-brand" href="/Default.aspx">
+                <h2 class="mx-1">SchoolSystem</h2>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <asp:LinkButton ID="linkHome" class="nav-link" runat="server" href="/Default.aspx">Home</asp:LinkButton>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Perfil
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <asp:LinkButton ID="linkMeuPerfil" class="dropdown-item" href="#" runat="server">Meu Perfil</asp:LinkButton>
+                            <asp:LinkButton ID="linkOutrosPerfis" class="dropdown-item" href="#" runat="server">Outros Perfis</asp:LinkButton>
+                            <div class="dropdown-divider"></div>
+                            <asp:LinkButton ID="linkCadastroPerfil" class="dropdown-item" href="#" runat="server">Cadastrar Novo Perfil</asp:LinkButton>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <asp:LinkButton ID="linkSair" class="nav-link text-danger" runat="server" OnClick="linkSair_Click">Sair</asp:LinkButton>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div style="height: 100%;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
