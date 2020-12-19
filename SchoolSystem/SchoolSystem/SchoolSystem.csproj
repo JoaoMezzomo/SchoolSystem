@@ -177,6 +177,8 @@
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Pagina.Master" />
+    <None Include="Properties\PublishProfiles\schoolsystemeda - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\schoolsystemeda - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
