@@ -11,7 +11,17 @@ namespace SchoolSystem.Views.Avisos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblTexto.Text = Texto();
+        }
 
+        private string Texto() 
+        {
+            string texto = @"   Identificamos que seu navegador está com o uso de cookies desativado, ou o mesmo não suporta esta tecnologia.
+    O SchoolSytem faz utilização de cookies para prorporcionar uma melhor experiência de uso para seus usuários.
+    Caso esteja com os cookies desativados em seus navegador, recomendamos que ative essa tecnologia para poder utilizar o sistema.
+    Caso seu navegador não suporte cookies, recomendamos a utilização dos seguintes navegadores: Microsoft Edge, Mozilla Firefox ou Google Chrome.";
+
+            return texto;
         }
     }
 }
