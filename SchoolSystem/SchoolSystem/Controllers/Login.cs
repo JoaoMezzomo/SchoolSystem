@@ -37,6 +37,7 @@ namespace SchoolSystem.Controllers
         {
             SessionsSite.CAD_PERFIS_LOGIN = "";
             SessionsSite.CAD_PERFIS_SENHA = "";
+            SessionsSite.CAD_PERFIS_IDPERMISSAO = 0;
         }
 
         public static bool VerificarLogin() 
@@ -54,6 +55,7 @@ namespace SchoolSystem.Controllers
                 {
                     SessionsSite.CAD_PERFIS_LOGIN = "";
                     SessionsSite.CAD_PERFIS_SENHA = "";
+                    SessionsSite.CAD_PERFIS_IDPERMISSAO = 0;
 
                     return false;
                 }
@@ -62,7 +64,7 @@ namespace SchoolSystem.Controllers
             {
                 SessionsSite.CAD_PERFIS_LOGIN = "";
                 SessionsSite.CAD_PERFIS_SENHA = "";
-
+                SessionsSite.CAD_PERFIS_IDPERMISSAO = 0;
                 return false;
             }
         }

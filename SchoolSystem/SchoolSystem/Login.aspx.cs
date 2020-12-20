@@ -32,10 +32,5 @@ namespace SchoolSystem
                 lblSenhaIncorreta.Visible = true;
             }
         }
-
-        private void MostrarMensagem(string mensagem) 
-        {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", string.Format("alert('{0}')", mensagem), true);
-        }
     }
 }

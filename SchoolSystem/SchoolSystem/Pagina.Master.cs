@@ -14,8 +14,14 @@ namespace SchoolSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Controllers.Login.VerificarLogin())
+            if (!Global.CookieVerificarPermissao(this.Request))
             {
+                Controllers.Login.RealizarLogout();
+                Response.Redirect("/Views/Avisos/Cookies.aspx");
+            }
+            else if (!Controllers.Login.VerificarLogin())
+            {
+                Controllers.Login.RealizarLogout();
                 Response.Redirect("/Login.aspx");
             }
             else
@@ -33,7 +39,7 @@ namespace SchoolSystem
             }
         }
 
-        private void MostrarMensagem(string mensagem)
+        public void MostrarMensagem(string mensagem)
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", string.Format("alert('{0}')", mensagem), true);
         }
@@ -46,16 +52,18 @@ namespace SchoolSystem
 
         protected void linkMeuPerfil_Click(object sender, EventArgs e) 
         {
-            SessionsSite.CAD_PERFIS_IDPERFIL = Perfis.BuscarMeuIDPERFIL();
+            Global.CookieCriar(Global.CK_IDPERFIL, Perfis.BuscarMeuIDPERFIL().ToString(), this.Request, this.Response);
 
             Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
         }
 
         protected void linkCadastroPerfil_Click(object sender, EventArgs e)
         {
-            SessionsSite.CAD_PERFIS_IDPERFIL = 0;
+            Global.CookieCriar(Global.CK_IDPERFIL, "0", this.Request, this.Response);
 
             Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
         }
+
+        
     }
 }

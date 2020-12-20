@@ -45,7 +45,7 @@ namespace SchoolSystem.Views.Perfis
 
         private void CarregarDados() 
         {
-            Perfil = Controllers.Perfis.BuscarDadosPerfil(SessionsSite.CAD_PERFIS_IDPERFIL);
+            Perfil = Controllers.Perfis.BuscarDadosPerfil(Convert.ToInt64(Global.CookieBuscarValor(Global.CK_IDPERFIL, this.Request)));
 
             txtLogin.Text = Perfil.LOGIN;
 
@@ -170,7 +170,7 @@ namespace SchoolSystem.Views.Perfis
 
             Controllers.Perfis.Salvar(Perfil);
 
-            if (SessionsSite.CAD_PERFIS_IDPERFIL != 0)
+            if (Global.CookieBuscarValor(Global.CK_IDPERFIL, this.Request) != "0")
             {
                 MostrarMensagem("Alterações Salvas!");
             }
@@ -179,7 +179,8 @@ namespace SchoolSystem.Views.Perfis
                 MostrarMensagem("Novo Perfil Cadastrado!");
             }
 
-            SessionsSite.CAD_PERFIS_IDPERFIL = Controllers.Perfis.BuscarIDPERFIL(Perfil.LOGIN);
+            Global.CookieCriar(Global.CK_IDPERFIL, Controllers.Perfis.BuscarIDPERFIL(Perfil.LOGIN).ToString(), this.Request, this.Response);
+
             CarregarDados();
         }
 
