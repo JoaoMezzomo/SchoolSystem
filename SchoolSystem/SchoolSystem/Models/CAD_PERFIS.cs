@@ -23,31 +23,38 @@ namespace SchoolSystem.Models
 		public string NOME_PAI;
 		public bool EXCLUIDO;
 
-		public static List<CAD_PERFIS> SELECT_ALL() 
+		public static List<CAD_PERFIS> SELECT(string chave, string filtro)
 		{
-			string query = "SELECT * FROM CAD_PERFIS";
+			string query = "SELECT " + chave + " FROM CAD_PERFIS \n" + filtro;
 
 			DataSet dataSet = DataBase.SELECT(query);
 
 			return GerarLista(dataSet);
 		}
 
-		public static List<CAD_PERFIS> SELECT_WHERE(string where)
+		public static DataTable SELECT_DATATABLE(string chave, string filtro)
 		{
-			string query = "SELECT * FROM CAD_PERFIS \n" + where;
+			string query = "SELECT " + chave + " FROM CAD_PERFIS \n" + filtro;
 
 			DataSet dataSet = DataBase.SELECT(query);
 
-			return GerarLista(dataSet);
+			if (dataSet.Tables.Count > 0)
+			{
+				return dataSet.Tables[0];
+			}
+			else
+			{
+				return new DataTable();
+			}
 		}
 
-		public static List<CAD_PERFIS> SELECT_JOIN_WHERE(string join, string where)
+		public static DataSet SELECT_DATASET(string chave, string filtro)
 		{
-			string query = "SELECT * FROM CAD_PERFIS \n" + join + " \n" + where;
+			string query = "SELECT " + chave + " FROM CAD_PERFIS \n" + filtro;
 
 			DataSet dataSet = DataBase.SELECT(query);
 
-			return GerarLista(dataSet);
+			return dataSet;
 		}
 
 		public static void INSERT(CAD_PERFIS item) 

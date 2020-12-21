@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.Security;
 using System.Web.SessionState;
 
@@ -9,6 +10,7 @@ namespace SchoolSystem
 {
     public class Global : System.Web.HttpApplication
     {
+        public static string CK_PAGINAANTERIOR = "CK_PAGINAANTERIOR";
         public static string CK_IDPERFIL = "CK_IDPERFIL";
 
         public static bool CookieVerificarPermissao(HttpRequest request)
@@ -41,6 +43,11 @@ namespace SchoolSystem
             HttpCookie cookie = request.Cookies[nomeCookie];
 
             return cookie.Value.ToString();
+        }
+
+        public static void MostrarMensagem(Page page, string mensagem) 
+        {
+            ScriptManager.RegisterClientScriptBlock(page, page.GetType(), "alertMessage", string.Format("alert('{0}')", mensagem), true);
         }
 
         protected void Application_Start(object sender, EventArgs e)

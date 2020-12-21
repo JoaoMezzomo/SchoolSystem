@@ -107,11 +107,6 @@ namespace SchoolSystem.Views.Perfis
             }
         }
 
-        private void MostrarMensagem(string mensagem)
-        {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", string.Format("alert('{0}')", mensagem), true);
-        }
-
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
             Perfil.LOGIN = txtLogin.Text;
@@ -172,11 +167,11 @@ namespace SchoolSystem.Views.Perfis
 
             if (Global.CookieBuscarValor(Global.CK_IDPERFIL, this.Request) != "0")
             {
-                MostrarMensagem("Alterações Salvas!");
+                Global.MostrarMensagem(this, "Alterações Salvas!");
             }
             else
             {
-                MostrarMensagem("Novo Perfil Cadastrado!");
+                Global.MostrarMensagem(this, "Novo Perfil Cadastrado!");
             }
 
             Global.CookieCriar(Global.CK_IDPERFIL, Controllers.Perfis.BuscarIDPERFIL(Perfil.LOGIN).ToString(), this.Request, this.Response);
@@ -186,7 +181,17 @@ namespace SchoolSystem.Views.Perfis
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Default.aspx");
+            string url = Global.CookieBuscarValor(Global.CK_PAGINAANTERIOR, this.Request);
+
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                Response.Redirect(url);
+            }
+            else
+            {
+                Response.Redirect("/Default.aspx");
+            }
         }
     }
 }

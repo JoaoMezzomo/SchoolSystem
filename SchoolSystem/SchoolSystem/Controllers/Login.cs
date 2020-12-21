@@ -14,7 +14,7 @@ namespace SchoolSystem.Controllers
         {
             string where = string.Format("WHERE LOGIN = '{0}' AND SENHA = '{1}'", login, senha);
 
-            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT_WHERE(where);
+            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT("*", where);
 
             if (listaPerfil.Count > 0)
             {

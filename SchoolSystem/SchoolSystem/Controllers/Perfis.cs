@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SchoolSystem.Models;
+using System.Data;
 
 namespace SchoolSystem.Controllers
 {
@@ -14,7 +15,7 @@ namespace SchoolSystem.Controllers
         {
             string login = SessionsSite.CAD_PERFIS_LOGIN;
 
-            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT_WHERE(string.Format("WHERE LOGIN = '{0}'", login));
+            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT("*" ,string.Format("WHERE LOGIN = '{0}'", login));
 
             if (listaPerfil.Count > 0)
             {
@@ -28,7 +29,7 @@ namespace SchoolSystem.Controllers
 
         public static Int64 BuscarIDPERFIL(string login) 
         {
-            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT_WHERE(string.Format("WHERE LOGIN = '{0}'", login));
+            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT("*", string.Format("WHERE LOGIN = '{0}'", login));
 
             if (listaPerfil.Count > 0)
             {
@@ -42,7 +43,7 @@ namespace SchoolSystem.Controllers
 
         public static CAD_PERFIS BuscarDadosPerfil(Int64 idPerfil) 
         {
-            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT_WHERE(string.Format("WHERE IDPERFIL = '{0}'", idPerfil));
+            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT("*", string.Format("WHERE IDPERFIL = '{0}'", idPerfil));
 
             if (listaPerfil.Count > 0)
             {
@@ -52,6 +53,18 @@ namespace SchoolSystem.Controllers
             {
                 return new CAD_PERFIS();
             }
+        }
+
+        public static List<CAD_PERFIS> BuscarTodosPerfis()
+        {
+            List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT("*", "ORDER BY LOGIN");
+
+            return listaPerfil;
+        }
+
+        public static DataTable BuscarTodosPerfisTabela() 
+        {
+            return CAD_PERFIS.SELECT_DATATABLE("*", "ORDER BY LOGIN");
         }
 
         public static void Salvar(CAD_PERFIS Perfil) 

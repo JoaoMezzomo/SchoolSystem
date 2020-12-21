@@ -39,11 +39,6 @@ namespace SchoolSystem
             }
         }
 
-        public void MostrarMensagem(string mensagem)
-        {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", string.Format("alert('{0}')", mensagem), true);
-        }
-
         protected void linkSair_Click(object sender, EventArgs e) 
         {
             Controllers.Login.RealizarLogout();
@@ -53,6 +48,7 @@ namespace SchoolSystem
         protected void linkMeuPerfil_Click(object sender, EventArgs e) 
         {
             Global.CookieCriar(Global.CK_IDPERFIL, Perfis.BuscarMeuIDPERFIL().ToString(), this.Request, this.Response);
+            Global.CookieCriar(Global.CK_PAGINAANTERIOR, "/Default.aspx", this.Request, this.Response);
 
             Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
         }
@@ -60,10 +56,16 @@ namespace SchoolSystem
         protected void linkCadastroPerfil_Click(object sender, EventArgs e)
         {
             Global.CookieCriar(Global.CK_IDPERFIL, "0", this.Request, this.Response);
+            Global.CookieCriar(Global.CK_PAGINAANTERIOR, "/Default.aspx", this.Request, this.Response);
 
             Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
         }
 
-        
+        protected void linkOutrosPerfis_Click(object sender, EventArgs e)
+        {
+            Global.CookieCriar(Global.CK_PAGINAANTERIOR, "/Default.aspx", this.Request, this.Response);
+
+            Response.Redirect("/Views/Perfis/Perfis_Lista.aspx");
+        }
     }
 }

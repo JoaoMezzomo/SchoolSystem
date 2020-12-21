@@ -78,7 +78,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <asp:LinkButton ID="linkMeuPerfil" class="dropdown-item" runat="server" OnClick="linkMeuPerfil_Click">Meu Perfil</asp:LinkButton>
-                            <asp:LinkButton ID="linkOutrosPerfis" class="dropdown-item" href="/Views/Perfis/Perfis_Lista.aspx" runat="server">Outros Perfis</asp:LinkButton>
+                            <asp:LinkButton ID="linkOutrosPerfis" class="dropdown-item" OnClick="linkOutrosPerfis_Click" runat="server">Outros Perfis</asp:LinkButton>
                             <div class="dropdown-divider"></div>
                             <asp:LinkButton ID="linkCadastroPerfil" class="dropdown-item" OnClick="linkCadastroPerfil_Click" runat="server">Cadastrar Novo Perfil</asp:LinkButton>
                         </div>
