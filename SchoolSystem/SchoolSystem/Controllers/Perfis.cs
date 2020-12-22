@@ -62,9 +62,26 @@ namespace SchoolSystem.Controllers
             return listaPerfil;
         }
 
-        public static DataTable BuscarTodosPerfisTabela() 
+        public static DataTable BuscarTodosPerfisTabela_NaoExcluidos() 
         {
-            return CAD_PERFIS.SELECT_DATATABLE("*", "ORDER BY LOGIN");
+            string chave = "CAD_PERFIS.IDPERFIL, CAD_PERFIS.LOGIN, CAD_PERMISSOES.NOME AS 'NOME_PERMISSAO'";
+
+            string filtro = "INNER JOIN CAD_PERMISSOES ON CAD_PERMISSOES.IDPERMISSAO = CAD_PERFIS.IDPERMISSAO \n";
+            filtro += "WHERE CAD_PERFIS.EXCLUIDO <> 1 \n";
+            filtro += "ORDER BY CAD_PERFIS.LOGIN";
+
+            return CAD_PERFIS.SELECT_DATATABLE(chave, filtro);
+        }
+
+        public static DataTable BuscarTodosPerfisTabela_Excluidos()
+        {
+            string chave = "CAD_PERFIS.IDPERFIL, CAD_PERFIS.LOGIN, CAD_PERMISSOES.NOME AS 'NOME_PERMISSAO'";
+
+            string filtro = "INNER JOIN CAD_PERMISSOES ON CAD_PERMISSOES.IDPERMISSAO = CAD_PERFIS.IDPERMISSAO \n";
+            filtro += "WHERE CAD_PERFIS.EXCLUIDO = 1 \n";
+            filtro += "ORDER BY CAD_PERFIS.LOGIN";
+
+            return CAD_PERFIS.SELECT_DATATABLE(chave, filtro);
         }
 
         public static void Salvar(CAD_PERFIS Perfil) 
