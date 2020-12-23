@@ -15,15 +15,6 @@ namespace SchoolSystem.Views.Perfis
     {
 
         /// <summary>
-        /// Controle btnFiltrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrar;
-
-        /// <summary>
         /// Controle txtLogin.
         /// </summary>
         /// <remarks>
@@ -51,13 +42,13 @@ namespace SchoolSystem.Views.Perfis
         protected global::System.Web.UI.WebControls.CheckBox checkExcluidos;
 
         /// <summary>
-        /// Controle btnEditar.
+        /// Controle btnFiltrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
 
         /// <summary>
         /// Controle gridPerfis.

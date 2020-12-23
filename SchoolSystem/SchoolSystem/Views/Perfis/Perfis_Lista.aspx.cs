@@ -50,31 +50,9 @@ namespace SchoolSystem.Views.Perfis
 
         protected void gridPerfis_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //CarregarTabela();
             gridPerfis.DataSource = DataTableGrid;
             gridPerfis.PageIndex = e.NewPageIndex;
             gridPerfis.DataBind();
-        }
-
-        protected void btnEditar_Click(object sender, EventArgs e)
-        {
-            foreach (GridViewRow gridRow in gridPerfis.Rows)
-            {
-                CheckBox checkbox = gridRow.FindControl("checkGridSelecionar") as CheckBox;
-
-                if (checkbox.Checked)
-                {
-                    gridPerfis.SelectedIndex = gridRow.RowIndex;
-
-                    Global.CookieCriar(Global.CK_IDPERFIL, gridPerfis.SelectedDataKey.Value.ToString(), this.Request, this.Response);
-                    Global.CookieCriar(Global.CK_PAGINAANTERIOR, "/Views/Perfis/Perfis_Lista.aspx", this.Request, this.Response);
-
-                    Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
-                    break;
-                }
-            }
-
-            Global.MostrarMensagem(this, "Nenhum item selecionado para edição!");
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -125,11 +103,25 @@ namespace SchoolSystem.Views.Perfis
             gridPerfis.DataBind();
         }
 
-        protected void gridPerfis_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void gridPerfis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTableGrid.Rows.RemoveAt(e.RowIndex);
-            gridPerfis.DataSource = DataTableGrid;
-            gridPerfis.DataBind();
+            if (gridPerfis.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            string chave = "";
+            chave = gridPerfis.SelectedDataKey.Value.ToString();
+
+            if (string.IsNullOrEmpty(chave))
+            {
+                return;
+            }
+
+            Global.CookieCriar(Global.CK_IDPERFIL, chave, this.Request, this.Response);
+            Global.CookieCriar(Global.CK_PAGINAANTERIOR, "/Views/Perfis/Perfis_Lista.aspx", this.Request, this.Response);
+
+            Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");
         }
     }
 }
