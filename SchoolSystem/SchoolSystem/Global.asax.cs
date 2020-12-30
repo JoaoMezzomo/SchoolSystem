@@ -14,6 +14,8 @@ namespace SchoolSystem
         public static string CK_IDPERMISSAO = "CK_IDPERMISSAO";
         public static string CK_PAGINAANTERIOR = "CK_PAGINAANTERIOR";
         public static string CK_IDPERFIL = "CK_IDPERFIL";
+        public static string CK_FILTRO_1 = "CK_FILTRO_1";
+        public static string CK_FILTRO_2 = "CK_FILTRO_2";
 
         public static bool CookieVerificarPermissao(HttpRequest request)
         {
@@ -44,14 +46,7 @@ namespace SchoolSystem
         {
             HttpCookie cookie = request.Cookies[nomeCookie];
 
-            if (cookie != null)
-            {
-                return cookie.Value.ToString();
-            }
-            else
-            {
-                return "";
-            }
+            return cookie != null ? cookie.Value.ToString() : "";
         }
 
         public static void MostrarMensagem(Page page, string mensagem) 

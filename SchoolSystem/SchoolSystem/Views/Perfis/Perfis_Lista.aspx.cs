@@ -22,6 +22,56 @@ namespace SchoolSystem.Views.Perfis
             {
                 CarregarTabela();
                 gridPerfis.DataBind();
+                CarregarFiltros();
+            }
+        }
+
+        private void SalvarFiltros(string filtro1, string filtro2) 
+        {
+            string url = HttpContext.Current.Request.Url.ToString() + "_";
+
+            if (!string.IsNullOrEmpty(filtro1))
+            {
+                Global.CookieCriar(Global.CK_FILTRO_1, url + filtro1, this.Request, this.Response);
+            }
+            else
+            {
+                Global.CookieCriar(Global.CK_FILTRO_1, "", this.Request, this.Response);
+            }
+            
+            if (!string.IsNullOrEmpty(filtro2))
+            {
+                Global.CookieCriar(Global.CK_FILTRO_2, url + filtro2, this.Request, this.Response);
+            }
+            else
+            {
+                Global.CookieCriar(Global.CK_FILTRO_2, "", this.Request, this.Response);
+            }
+        }
+
+        private void CarregarFiltros() 
+        {
+            string url = HttpContext.Current.Request.Url.ToString() + "_";
+
+            string filtro1 = Global.CookieBuscarValor(Global.CK_FILTRO_1, this.Request);
+            string filtro2 = Global.CookieBuscarValor(Global.CK_FILTRO_2, this.Request);
+
+            filtro1 = filtro1.Replace(url, "");
+            filtro2 = filtro2.Replace(url, "");
+
+            if (!string.IsNullOrEmpty(filtro1) && !filtro1.Contains(".aspx"))
+            {
+                txtLogin.Text = filtro1;
+            }
+
+            if (!string.IsNullOrEmpty(filtro2) && !filtro1.Contains(".aspx"))
+            {
+                txtPermissao.Text = filtro2;
+            }
+
+            if (!string.IsNullOrEmpty(filtro1) || !string.IsNullOrEmpty(filtro2))
+            {
+                btnFiltrar_Click(new object(), new EventArgs());
             }
         }
 
@@ -63,6 +113,8 @@ namespace SchoolSystem.Views.Perfis
             {
                 return;
             }
+
+            SalvarFiltros(txtLogin.Text, txtPermissao.Text);
 
             DataTable dataTableFiltro = DataTableGrid.Clone();
 

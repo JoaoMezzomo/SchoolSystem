@@ -13,15 +13,14 @@
 
         <div class="row bg-light">
             <div class="col-0 col-sm-0 col-md-2 col-lg-2 col-xl-2 mb-1">
-                <button class="navbar-toggler text-center" type="button" style="width: 100%;" data-toggle="collapse" data-target="#navbarFiltros" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <h4 class="text-roxo text-center">Filtros</h4>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarFiltros">
-                    <asp:TextBox ID="txtLogin" type="text" PlaceHolder="Login" class="form-text form-control campo-normal" style="width:100%;" runat="server" MaxLength="15"></asp:TextBox>
-                    <asp:TextBox ID="txtPermissao" type="text" PlaceHolder="Permissão" class="form-text form-control campo-normal" style="width:100%;" runat="server" MaxLength="15"></asp:TextBox>
-                    <asp:CheckBox ID="checkExcluidos" runat="server" Text="Excluídos" />
-                    <asp:Button ID="btnFiltrar" class="btn btn-normal text-light" style="width: 100%;" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
+                <h4 class="text-roxo text-center">Filtros</h4>
+                <asp:TextBox ID="txtLogin" type="text" PlaceHolder="Login" class="form-text form-control campo-normal" style="width:100%;" runat="server" MaxLength="15"></asp:TextBox>
+                <asp:TextBox ID="txtPermissao" type="text" PlaceHolder="Permissão" class="form-text form-control campo-normal" style="width:100%;" runat="server" MaxLength="15"></asp:TextBox>
+                <asp:CheckBox ID="checkExcluidos" runat="server" Text="Excluídos" />
+                <div class="text-center">
+                    <asp:Button ID="btnFiltrar" class="btn btn-normal text-light" style="width: 70%;" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
                 </div>
+                <hr />
             </div>
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                 <asp:GridView

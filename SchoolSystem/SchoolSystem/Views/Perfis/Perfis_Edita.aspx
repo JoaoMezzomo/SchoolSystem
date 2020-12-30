@@ -75,12 +75,12 @@
                 <asp:Label ID="lblExcluido" for="checkExcluido" class="text-roxo" runat="server" Text="Excluído"></asp:Label>
             </div>
         </div>
-        <div class="row my-3">
+        <div class="row my-3 text-center">
             <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <asp:Button ID="btnSalvar" class="btn mt-3 text-light btn-salvar" runat="server" Text="Salvar" style="width: 100%;" ValidationGroup="Obrigatorio" CausesValidation="True" OnClick="btnSalvar_Click" />
+                <asp:Button ID="btnSalvar" class="btn mt-3 text-light btn-salvar" runat="server" Text="Salvar" style="width: 70%;" ValidationGroup="Obrigatorio" CausesValidation="True" OnClick="btnSalvar_Click" />
             </div>
             <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-                <asp:Button ID="btnCancelar" class="btn mt-3 text-light btn-cancelar" runat="server" Text="Cancelar" style="width: 100%;" OnClick="btnCancelar_Click" />
+                <asp:Button ID="btnCancelar" class="btn mt-3 text-light btn-cancelar" runat="server" Text="Cancelar" style="width: 70%;" OnClick="btnCancelar_Click" />
             </div>
         </div>
     </div>
