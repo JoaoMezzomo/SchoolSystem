@@ -164,18 +164,7 @@ namespace SchoolSystem.Views.Perfis
 
             Controllers.Perfis.Salvar(Perfil);
 
-            if (Global.CookieBuscarValor(Global.CK_IDPERFIL, this.Request) != "0")
-            {
-                Global.MostrarMensagem(this, "Alterações Salvas!");
-            }
-            else
-            {
-                Global.MostrarMensagem(this, "Novo Perfil Cadastrado!");
-            }
-
-            Global.CookieCriar(Global.CK_IDPERFIL, Controllers.Perfis.BuscarIDPERFIL(Perfil.LOGIN).ToString(), this.Request, this.Response);
-
-            CarregarDados();
+            btnCancelar_Click(new object(), new EventArgs());
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
