@@ -13,7 +13,7 @@ namespace SchoolSystem
         {
             if (!IsPostBack)
             {
-                if (Controllers.Login.VerificarLogin())
+                if (Controllers.Login.VerificarLogin(this.Request, this.Response))
                 {
                     Response.Redirect("/Default.aspx");
                 }
@@ -22,7 +22,7 @@ namespace SchoolSystem
 
         protected void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (Controllers.Login.RealizarLogin(txtLogin.Text, txtSenha.Text))
+            if (Controllers.Login.RealizarLogin(txtLogin.Text, txtSenha.Text, this.Request, this.Response))
             {
                 lblSenhaIncorreta.Visible = false;
                 Response.Redirect("/Default.aspx");

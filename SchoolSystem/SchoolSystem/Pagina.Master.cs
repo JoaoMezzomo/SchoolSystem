@@ -10,18 +10,16 @@ namespace SchoolSystem
 {
     public partial class Pagina : System.Web.UI.MasterPage
     {
-        private static Controllers.Sessions SessionsSite = new Controllers.Sessions();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Global.CookieVerificarPermissao(this.Request))
             {
-                Controllers.Login.RealizarLogout();
+                Controllers.Login.RealizarLogout(this.Request, this.Response);
                 Response.Redirect("/Views/Avisos/Cookies.aspx");
             }
-            else if (!Controllers.Login.VerificarLogin())
+            else if (!Controllers.Login.VerificarLogin(this.Request, this.Response))
             {
-                Controllers.Login.RealizarLogout();
+                Controllers.Login.RealizarLogout(this.Request, this.Response);
                 Response.Redirect("/Login.aspx");
             }
             else
@@ -32,7 +30,7 @@ namespace SchoolSystem
 
         private void CarregarPermissaoMenu() 
         {
-            if (SessionsSite.CAD_PERFIS_IDPERMISSAO != (int)Enums.Permissoes.Admin)
+            if (Global.CookieBuscarValor(Global.CK_IDPERMISSAO, this.Request) != ((int)Enums.Permissoes.Admin).ToString())
             {
                 linkOutrosPerfis.Visible = false;
                 linkCadastroPerfil.Visible = false;
@@ -41,13 +39,13 @@ namespace SchoolSystem
 
         protected void linkSair_Click(object sender, EventArgs e) 
         {
-            Controllers.Login.RealizarLogout();
+            Controllers.Login.RealizarLogout(this.Request, this.Response);
             Response.Redirect("/Login.aspx");
         }
 
         protected void linkMeuPerfil_Click(object sender, EventArgs e) 
         {
-            Global.CookieCriar(Global.CK_IDPERFIL, Perfis.BuscarMeuIDPERFIL().ToString(), this.Request, this.Response);
+            Global.CookieCriar(Global.CK_IDPERFIL, Perfis.BuscarMeuIDPERFIL(this.Request).ToString(), this.Request, this.Response);
             Global.CookieCriar(Global.CK_PAGINAANTERIOR, "/Default.aspx", this.Request, this.Response);
 
             Response.Redirect("/Views/Perfis/Perfis_Edita.aspx");

@@ -9,11 +9,10 @@ namespace SchoolSystem.Controllers
 {
     public class Perfis
     {
-        private static Controllers.Sessions SessionsSite = new Controllers.Sessions();
-
-        public static Int64 BuscarMeuIDPERFIL()
+        public static Int64 BuscarMeuIDPERFIL(HttpRequest request)
         {
-            string login = SessionsSite.CAD_PERFIS_LOGIN;
+            Criptografia criptografia = new Criptografia();
+            string login = criptografia.Decriptar(Global.CookieBuscarValor(Global.CK_LOGIN, request));
 
             List<CAD_PERFIS> listaPerfil = CAD_PERFIS.SELECT("*" ,string.Format("WHERE LOGIN = '{0}'", login));
 

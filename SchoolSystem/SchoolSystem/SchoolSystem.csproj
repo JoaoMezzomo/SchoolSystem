@@ -99,13 +99,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Criptografia.cs" />
     <Compile Include="Controllers\Enums.cs" />
     <Compile Include="Controllers\Login.cs" />
     <Compile Include="Controllers\Perfis.cs" />
     <Compile Include="Controllers\Permissoes.cs" />
-    <Compile Include="Controllers\Sessions.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -11,7 +11,6 @@ namespace SchoolSystem.Views.Perfis
 {
     public partial class Perfis_Edita : System.Web.UI.Page
     {
-        private static Sessions SessionsSite = new Sessions();
         private static CAD_PERFIS Perfil = new CAD_PERFIS();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -98,7 +97,7 @@ namespace SchoolSystem.Views.Perfis
 
         private void CarregarPermissao() 
         {
-            if (SessionsSite.CAD_PERFIS_IDPERMISSAO != (int)Enums.Permissoes.Admin)
+            if (Global.CookieBuscarValor(Global.CK_IDPERMISSAO, this.Request) != ((int)Enums.Permissoes.Admin).ToString())
             {
                 txtLogin.ReadOnly = true;
                 txtSenha.ReadOnly = true;

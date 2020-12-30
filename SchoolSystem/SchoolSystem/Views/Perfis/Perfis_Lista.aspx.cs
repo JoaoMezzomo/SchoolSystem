@@ -12,7 +12,6 @@ namespace SchoolSystem.Views.Perfis
 {
     public partial class Perfis_Lista : System.Web.UI.Page
     {
-        private static Sessions SessionsSite = new Sessions();
         private static DataTable DataTableGrid = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,10 +27,10 @@ namespace SchoolSystem.Views.Perfis
 
         private void CarregarPermissao()
         {
-            //if (SessionsSite.CAD_PERFIS_IDPERMISSAO != (int)Enums.Permissoes.Admin)
-            //{
-            //    Response.Redirect("/Login.aspx");
-            //}
+            if (Global.CookieBuscarValor(Global.CK_IDPERMISSAO, this.Request) != ((int)Enums.Permissoes.Admin).ToString())
+            {
+                Response.Redirect("/Login.aspx");
+            }
         }
 
         private void CarregarTabela() 

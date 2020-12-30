@@ -10,6 +10,8 @@ namespace SchoolSystem
 {
     public class Global : System.Web.HttpApplication
     {
+        public static string CK_LOGIN = "CK_LOGIN";
+        public static string CK_IDPERMISSAO = "CK_IDPERMISSAO";
         public static string CK_PAGINAANTERIOR = "CK_PAGINAANTERIOR";
         public static string CK_IDPERFIL = "CK_IDPERFIL";
 
@@ -42,7 +44,14 @@ namespace SchoolSystem
         {
             HttpCookie cookie = request.Cookies[nomeCookie];
 
-            return cookie.Value.ToString();
+            if (cookie != null)
+            {
+                return cookie.Value.ToString();
+            }
+            else
+            {
+                return "";
+            }
         }
 
         public static void MostrarMensagem(Page page, string mensagem) 
